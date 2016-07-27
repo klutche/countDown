@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>カウントダウンタイマー</title>
+<style>
+html, body, div, p, img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#countdown:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+#countdown p { float: left; }
+#countdown img { margin-right: 2px; }
+#end {
+	color: #f00;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: sans-serif;
+	text-align: center;
+	line-height: 80px;
+}
+</style>
+<script>
+function countdown(year, month, date, hour, minute, second) {
+	xday = new Date(year, month - 1, date, hour, minute, second);
+	cday = new Date();
+	t = xday.getTime() - cday.getTime();
+	// カウントダウン表示
+	if (t > 0) {
+		dat = String(Math.floor(t / (1000 * 60 * 60 * 24)));
+		t -= dat * (1000 * 60 * 60 * 24);
+		hou = String(Math.floor(t / (1000 * 60 * 60)));
+		t -= hou * (1000 * 60 * 60);
+		min = String(Math.floor(t / (1000 * 60)));
+		t -= min * (1000 * 60);
+		sec = String(Math.floor(t / (1000)));
+		t -= sec * (1000);
+		mil = String(Math.floor(t / (10)));
+		// 日
+		document.getElementById('countdown').innerHTML = '<p id="day">';
+		dat = ('0' + dat).slice(-2);
+		for (i = 0; i < dat.length; i++) {
+			e = document.createElement('img');
+			e.src = dat.charAt(i) + '.png';
+			document.getElementById('day').appendChild(e);
+		}
+		document.getElementById('day').innerHTML += '<img src="day.png">';
+		// 時間
+		hou = ('0' + hou).slice(-2);
+		document.getElementById('countdown').innerHTML += '<p id="hou">';
+		for (i = 0; i < hou.length; i++) {
+			e = document.createElement('img');
+			e.src = hou.charAt(i) + '.png';
+			document.getElementById('hou').appendChild(e);
+		}
+		document.getElementById('hou').innerHTML += '<img src="hou.png">';
+		// 分
+		min = ('0' + min).slice(-2);
+		document.getElementById('countdown').innerHTML += '<p id="min">';
+		for (i = 0; i < min.length; i++) {
+			e = document.createElement('img');
+			e.src = min.charAt(i) + '.png';
+			document.getElementById('min').appendChild(e);
+		}
+		document.getElementById('min').innerHTML += '<img src="min.png">';
+		// 秒
+		sec = ('0' + sec).slice(-2);
+		document.getElementById('countdown').innerHTML += '<p id="sec">';
+		for (i = 0; i < sec.length; i++) {
+			e = document.createElement('img');
+			e.src = sec.charAt(i) + '.png';
+			document.getElementById('sec').appendChild(e);
+		}
+		document.getElementById('sec').innerHTML += '<img src="sec.png">';
+		// マイクロ秒
+		mil = ('0' + mil).slice(-2);
+		document.getElementById('countdown').innerHTML += '<p id="mil">';
+		for (i = 0; i < mil.length; i++) {
+			e = document.createElement('img');
+			e.src = mil.charAt(i) + '.png';
+			document.getElementById('mil').appendChild(e);
+		}
+		setTimeout('countdown(' + year + ', ' + month + ', ' + date + ', ' + hour + ', ' + minute + ', ' + second + ')', 10);
+	// 終了メッセージ
+	} else {
+		e = 'SALE終了。沢山のご注文ありがとうございました！';
+		document.getElementById('end').innerHTML = e;
+	}
+}
+</script>
+</head>
+<body onLoad="countdown(2016, 7, 28, 0, 0, 0)">
+
+<div id="countdown"></div><!-- /countdown -->
+
+<p id="end"></p>
+
+</body>
+</html>
