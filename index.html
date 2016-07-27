@@ -46,43 +46,43 @@ function countdown(year, month, date, hour, minute, second) {
 		dat = ('0' + dat).slice(-2);
 		for (i = 0; i < dat.length; i++) {
 			e = document.createElement('img');
-			e.src = dat.charAt(i) + '.png';
+			e.src = 'img/' + dat.charAt(i) + '.png';
 			document.getElementById('day').appendChild(e);
 		}
-		document.getElementById('day').innerHTML += '<img src="day.png">';
+		document.getElementById('day').innerHTML += '<img src="img/day.png">';
 		// 時間
 		hou = ('0' + hou).slice(-2);
 		document.getElementById('countdown').innerHTML += '<p id="hou">';
 		for (i = 0; i < hou.length; i++) {
 			e = document.createElement('img');
-			e.src = hou.charAt(i) + '.png';
+			e.src = 'img/' + hou.charAt(i) + '.png';
 			document.getElementById('hou').appendChild(e);
 		}
-		document.getElementById('hou').innerHTML += '<img src="hou.png">';
+		document.getElementById('hou').innerHTML += '<img src="img/hou.png">';
 		// 分
 		min = ('0' + min).slice(-2);
 		document.getElementById('countdown').innerHTML += '<p id="min">';
 		for (i = 0; i < min.length; i++) {
 			e = document.createElement('img');
-			e.src = min.charAt(i) + '.png';
+			e.src = 'img/' + min.charAt(i) + '.png';
 			document.getElementById('min').appendChild(e);
 		}
-		document.getElementById('min').innerHTML += '<img src="min.png">';
+		document.getElementById('min').innerHTML += '<img src="img/min.png">';
 		// 秒
 		sec = ('0' + sec).slice(-2);
 		document.getElementById('countdown').innerHTML += '<p id="sec">';
 		for (i = 0; i < sec.length; i++) {
 			e = document.createElement('img');
-			e.src = sec.charAt(i) + '.png';
+			e.src = 'img/' + sec.charAt(i) + '.png';
 			document.getElementById('sec').appendChild(e);
 		}
-		document.getElementById('sec').innerHTML += '<img src="sec.png">';
+		document.getElementById('sec').innerHTML += '<img src="img/sec.png">';
 		// マイクロ秒
 		mil = ('0' + mil).slice(-2);
 		document.getElementById('countdown').innerHTML += '<p id="mil">';
 		for (i = 0; i < mil.length; i++) {
 			e = document.createElement('img');
-			e.src = mil.charAt(i) + '.png';
+			e.src = 'img/' + mil.charAt(i) + '.png';
 			document.getElementById('mil').appendChild(e);
 		}
 		setTimeout('countdown(' + year + ', ' + month + ', ' + date + ', ' + hour + ', ' + minute + ', ' + second + ')', 10);
